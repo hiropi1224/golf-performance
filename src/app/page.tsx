@@ -168,7 +168,7 @@ export default async function Index() {
                 key={type}
                 className='grid w-full grid-cols-3 border-b text-sm last:border-b-0'
               >
-                <div className='min-h-12 flex w-full items-center p-4 font-bold'>
+                <div className='flex w-full items-center p-4 font-bold'>
                   {type}
                 </div>
                 <div className='col-span-2 flex items-center border-l p-4'>
