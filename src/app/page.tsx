@@ -1,9 +1,12 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
+
+import { GoogleAuthButton } from '@/app/_components';
+
 import LogoutButton from '../components/LogoutButton';
-import SupabaseLogo from '../components/SupabaseLogo';
 import NextJsLogo from '../components/NextJsLogo';
+import SupabaseLogo from '../components/SupabaseLogo';
 
 export const dynamic = 'force-dynamic';
 
@@ -59,12 +62,15 @@ export default async function Index() {
                 <LogoutButton />
               </div>
             ) : (
-              <Link
-                href='/login'
-                className='rounded-md bg-btn-background px-4 py-2 no-underline hover:bg-btn-background-hover'
-              >
-                Login
-              </Link>
+              <div className='flex items-center justify-center gap-2'>
+                <Link
+                  href='/login'
+                  className='rounded-md bg-btn-background px-4 py-2 no-underline hover:bg-btn-background-hover'
+                >
+                  Login
+                </Link>
+                <GoogleAuthButton />
+              </div>
             )}
           </div>
         </div>
@@ -162,7 +168,7 @@ export default async function Index() {
                 key={type}
                 className='grid w-full grid-cols-3 border-b text-sm last:border-b-0'
               >
-                <div className='min-h-12 flex w-full items-center p-4 font-bold'>
+                <div className='flex w-full items-center p-4 font-bold'>
                   {type}
                 </div>
                 <div className='col-span-2 flex items-center border-l p-4'>
