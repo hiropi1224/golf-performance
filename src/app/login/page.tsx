@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -66,21 +66,19 @@ export default function Login() {
           className='flex w-full flex-1 flex-col justify-center gap-2 text-foreground'
           onSubmit={view === 'sign-in' ? handleSignIn : handleSignUp}
         >
-          <label className='text-md' htmlFor='email'>
-            Email
-          </label>
+          <label htmlFor='email'>Email</label>
           <input
-            className='mb-6 rounded-md border bg-inherit px-4 py-2'
+            className='mb-6 rounded-md border px-4 py-2'
             name='email'
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             placeholder='you@example.com'
           />
-          <label className='text-md' htmlFor='password'>
+          <label className='text-base' htmlFor='password'>
             Password
           </label>
           <input
-            className='mb-6 rounded-md border bg-inherit px-4 py-2'
+            className='mb-6 rounded-md border px-4 py-2'
             type='password'
             name='password'
             onChange={(e) => setPassword(e.target.value)}
@@ -89,11 +87,11 @@ export default function Login() {
           />
           {view === 'sign-in' && (
             <>
-              <button className='mb-6 rounded bg-green-700 px-4 py-2 text-white'>
+              <button className='mb-6 rounded bg-green-9 px-4 py-2 text-mauve-1 hover:bg-green-8'>
                 Sign In
               </button>
               <p className='text-center text-sm'>
-                Don't have an account?
+                アカウントを持っていない方はこちら
                 <button
                   className='ml-1 underline'
                   onClick={() => setView('sign-up')}
@@ -105,11 +103,11 @@ export default function Login() {
           )}
           {view === 'sign-up' && (
             <>
-              <button className='mb-6 rounded bg-green-700 px-4 py-2 text-white'>
+              <button className='mb-6 rounded bg-green-9 px-4 py-2 text-mauve-1 hover:bg-green-8'>
                 Sign Up
               </button>
               <p className='text-center text-sm'>
-                Already have an account?
+                すでにアカウントを持っている方はこちら
                 <button
                   className='ml-1 underline'
                   onClick={() => setView('sign-in')}
